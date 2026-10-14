@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dom Maioral — Plano da X-Men | Narco Empire</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b130f;--panel:#14211c;--panel2:#0e1a15;--ink:#e9ddb0;--mute:#9fae9f;--gold:#e0ac3c;--blood:#b02a20;--teal:#2f7a60;--line:#27382f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="dark"]){color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#1c3a2c 0,transparent 60%),var(--bg);color:var(--ink);font:400 16px/1.6 Montserrat,system-ui,sans-serif}
+h1,h2,h3{font-family:'Rubik Dirt',Impact,'Arial Black',sans-serif;font-weight:400;margin:0;letter-spacing:.02em}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+section{padding:46px 0}
+h2{font-size:clamp(28px,6vw,42px);color:var(--gold);margin-bottom:6px}
+.sub{color:var(--mute);margin:0 0 22px;max-width:62ch}
+.brush{background:linear-gradient(100deg,#050806 0,#0d1411 60%,#3a1410 100%);padding:10px 20px;transform:skew(-3deg);border-bottom:3px solid var(--teal);display:inline-block}
+.brush>*{transform:skew(3deg)}
+.hero{padding:54px 0 30px}
+.hero h1{font-size:clamp(46px,13vw,110px);line-height:.95;color:var(--ink);text-shadow:3px 3px 0 var(--blood)}
+.hero p{max-width:60ch;color:var(--mute)}
+.tag{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.tag span{border:1px solid var(--gold);color:var(--gold);padding:3px 12px;border-radius:2px;font-weight:600;font-size:14px}
+.now{background:var(--panel);border-left:6px solid var(--blood);padding:16px 20px;margin-top:20px}
+.now b{font-size:20px;color:var(--gold)}
+#cd{font-variant-numeric:tabular-nums;font-weight:800;font-size:22px}
+.big{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);padding:18px}
+.card h3{font-size:22px;color:var(--ink);margin-bottom:6px}
+.num{font-family:'Rubik Dirt',Impact,sans-serif;font-size:44px;color:var(--gold);line-height:1}
+.card.hot{border-color:var(--blood);background:linear-gradient(160deg,#2a110e,var(--panel))}
+.tl{display:grid;gap:14px}
+.ph{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-columns:90px 1fr}
+.ph>.d{background:var(--panel2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;border-right:1px solid var(--line);text-align:center}
+.ph>.d b{font-family:'Rubik Dirt',Impact,sans-serif;font-size:40px;color:var(--gold);font-weight:400;line-height:1}
+.ph>.d small{color:var(--mute);font-size:12px}
+.ph>div:last-child{padding:16px 18px}
+.ph h3{font-size:24px}
+.ph.cur{outline:2px solid var(--gold)}
+.ph ul{margin:8px 0;padding-left:18px}
+.ph li{margin:2px 0}
+.pill{display:inline-block;background:var(--teal);color:#fff;font-weight:800;font-size:13px;padding:2px 10px;border-radius:99px;margin-right:6px}
+.pill.r{background:var(--blood)}
+.pill.g{background:var(--gold);color:#201505}
+.tip{border-top:1px dashed var(--line);margin-top:10px;padding-top:8px;color:#cfd8c4}
+table{width:100%;border-collapse:collapse;background:var(--panel)}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:15px}
+th{color:var(--gold);font-weight:800;background:var(--panel2)}
+.scroll{overflow-x:auto}
+.calc{background:var(--panel);border:1px solid var(--gold);padding:20px}
+.calc .row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+label{display:block;font-weight:600;font-size:14px;color:var(--mute)}
+input{width:100%;margin-top:4px;background:#07100c;border:1px solid var(--line);color:var(--ink);padding:10px;font:inherit;border-radius:3px}
+input:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.out{margin-top:16px;font-size:15px}
+.out .num{font-size:52px}
+.warn{background:#241b0b;border-left:6px solid var(--gold);padding:14px 18px;margin-top:18px;font-size:15px;color:#e3d6a6}
+ol.steps{padding-left:20px}ol.steps li{margin:8px 0}
+footer{padding:36px 0 50px;text-align:center;color:var(--mute);border-top:1px solid var(--line)}
+footer b{font-family:'Rubik Dirt',Impact,sans-serif;font-weight:400;color:var(--gold);font-size:26px;display:block}
+@media(max-width:560px){.ph{grid-template-columns:1fr}.ph>.d{flex-direction:row;gap:10px;border-right:0;border-bottom:1px solid var(--line)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--gold:#dcb865;--gold2:#f3dc9a;--bg:#080e0b;--panel:#101b16;--panel2:#0b1511;--line:#22352b;--r:14px}
+body{background:radial-gradient(900px 500px at 12% -5%,rgba(47,122,96,.28),transparent 60%),radial-gradient(800px 500px at 98% 0,rgba(176,42,32,.16),transparent 55%),var(--bg);background-attachment:fixed}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+section:nth-of-type(even){background:rgba(255,255,255,.018)}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blood),var(--gold));z-index:60}
+#nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(8,14,11,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nv{display:flex;align-items:center;gap:18px;height:58px}
+.logo{font-family:'Rubik Dirt',Impact,sans-serif;color:var(--gold);text-decoration:none;font-size:22px;white-space:nowrap}
+.lk{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.lk::-webkit-scrollbar{display:none}
+.lk a{color:var(--mute);text-decoration:none;font-weight:600;font-size:14px;padding:8px 14px;border-radius:99px;white-space:nowrap;transition:color .25s,background .25s}
+.lk a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+.lk a.on{color:#1a1204;background:var(--gold)}
+.hero{position:relative;padding:86px 0 54px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto;height:130%;background:conic-gradient(from 180deg at 50% 40%,rgba(176,42,32,.2),transparent 30%,rgba(47,122,96,.24),transparent 70%);filter:blur(70px);animation:spin 30s linear infinite;opacity:.8}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .wrap{position:relative}
+.hero .wrap>*{opacity:0;animation:fu .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero .wrap>:nth-child(2){animation-delay:.12s}.hero .wrap>:nth-child(3){animation-delay:.24s}.hero .wrap>:nth-child(4){animation-delay:.36s}.hero .wrap>:nth-child(5){animation-delay:.48s}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero h1{font-size:clamp(54px,14vw,132px)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:28px 0 6px}
+.stats>div{border-left:2px solid var(--gold);padding:4px 0 4px 14px}
+.stats b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,6vw,54px);color:var(--gold2);line-height:1}
+.stats span{color:var(--mute);font-size:13px}
+.now{border-radius:var(--r);border:1px solid var(--line);border-left:6px solid var(--blood);background:rgba(16,27,22,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.now b::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:#e24a3b;margin-right:10px;animation:pu 1.8s infinite}
+@keyframes pu{0%{box-shadow:0 0 0 0 rgba(226,74,59,.7)}70%{box-shadow:0 0 0 10px rgba(226,74,59,0)}100%{box-shadow:0 0 0 0 rgba(226,74,59,0)}}
+h2{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(30px,5vw,46px);color:var(--gold2);letter-spacing:-.01em}
+h2::after{content:"";display:block;width:120px;height:3px;margin-top:10px;background:linear-gradient(90deg,var(--blood),var(--gold));border-radius:2px;transition:width .9s .25s cubic-bezier(.2,.7,.2,1)}
+.card,.ph,.calc{border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0)),var(--panel);transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover,.ph:hover{transform:translateY(-4px);border-color:rgba(220,184,101,.5);box-shadow:0 18px 40px -18px rgba(0,0,0,.85)}
+.num{background:linear-gradient(180deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ph{overflow:hidden}
+.ph>.d{background:linear-gradient(180deg,#10201a,#0a130f)}
+.ph>.d b{background:linear-gradient(180deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ph.cur{outline:0;border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 44px -8px rgba(220,184,101,.45)}
+.ph.ping{animation:png 1.2s}
+@keyframes png{0%,60%{box-shadow:0 0 0 2px var(--gold),0 0 50px rgba(220,184,101,.5)}100%{box-shadow:none}}
+.rail{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 18px;padding:6px 0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:5;background:linear-gradient(var(--bg) 70%,transparent)}
+.rail::-webkit-scrollbar{display:none}
+.rail button{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);color:var(--mute);font:600 13px Montserrat,sans-serif;padding:7px 14px 7px 8px;border-radius:99px;cursor:pointer;white-space:nowrap;transition:.25s}
+.rail button b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#1a1204;font-size:12px}
+.rail button:hover{color:var(--ink);border-color:var(--gold);transform:translateY(-2px)}
+.scroll{border-radius:var(--r);border:1px solid var(--line)}
+table{border-collapse:separate;border-spacing:0}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+tr:hover td{background:rgba(220,184,101,.06)}
+tr:last-child td{border-bottom:0}
+input,select{transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(220,184,101,.18)}
+.warn{border-radius:0 var(--r) var(--r) 0}
+footer{background:linear-gradient(180deg,transparent,rgba(176,42,32,.1))}
+#top2{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(8,14,11,.88);color:var(--gold);font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:.3s;z-index:40}
+#top2.show{opacity:1;pointer-events:auto;transform:none}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js h2.rv::after{width:30px}.js h2.rv.in::after{width:120px}
+@media(max-width:640px){.logo{display:none}.lk{margin-left:0}.hero{padding-top:60px}}
+@media(prefers-reduced-motion:reduce){.hero::before,.now b::before{animation:none}.hero .wrap>*{opacity:1;animation:none}.card:hover,.ph:hover{transform:none}}
+</style>
+<script>document.documentElement.classList.add("js")</script></head>
+<body>
+<div id="bar"></div>
+<nav id="nav" aria-label="Navegação"><div class="wrap nv"><a class="logo" href="#top">Dom Maioral</a><div class="lk"><a href="#conta">Resumo</a><a href="#fases">Fases</a><a href="#calc">Fase 7</a><a href="#aceleradores">Aceleradores</a><a href="#premios">Prêmios</a><a href="#rotina">Rotina</a></div></div></nav>
+<header class="hero" id="top"><div class="wrap">
+<div class="brush"><h1>Dom Maioral</h1></div>
+<div class="tag"><span>Narco Empire</span><span>Guia de estratégia</span></div>
+<p>O evento é decidido por um número: Fama total nas 7 fases. Quem guarda aceleradores e escolhe a hora certa de gastar cada recurso vence. Este é o plano.</p>
+<div class="stats"><div><b data-to="300">300</b><span>Fama por minuto de acelerador na Fase 7</span></div><div><b data-to="13.5" data-dec="1" data-suf="M">13,5M</b><span>Fama no dia da roleta</span></div><div><b data-to="7">7</b><span>fases de 1 dia cada</span></div></div>
+<div class="now" id="now"><b id="nphase">Carregando fase…</b><div id="cd"></div><div style="color:var(--mute);font-size:14px">Cada fase dura 1 dia. Início: domingo 21h (Brasília) = 00:00 UTC.</div></div>
+</div></header>
+
+<section><div class="wrap">
+<h2 id="conta">A conta que manda no evento</h2>
+<p class="sub">Comparando o valor de cada fonte de Fama que aparece nos prints.</p>
+<div class="big">
+<div class="card hot"><div class="num">300</div><h3>Fama por 1 minuto de acelerador</h3><p>Fase 7. Construção, pesquisa e treino/promoção contam, cada um. Isso dá 18.000 Fama por acelerador de 1h, em cada uma das três categorias. Aceleradores de Ouro não contam. Para treino, os dias 1, 3 e 5 rendem mais por minuto (veja a calculadora). Para obras e pesquisas longas, a Fase 7 costuma ganhar.</p></div>
+<div class="card"><div class="num">500</div><h3>Fama por ponto de Apetrecho</h3><p>Fase 6: cada +1 na maior pontuação de Apetrechos do Patrón (sem Brasões da Família).</p></div>
+<div class="card hot"><div class="num">13,5M</div><h3>Fama no dia da roleta</h3><p>Fase 2: cada Giro da Sorte rende 90.000 de Fama, e o limite é 150 giros no dia. Gastando 202.500 de ouro (10x paga 9), são 13,5 milhões, o equivalente a 750h de aceleradores na Fase 7.</p></div>
+<div class="card"><div class="num">100k</div><h3>Por peça de Equipamento</h3><p>Fase 5: cada peça usada em Equipamento Especial de Sicário rende 100.000 e cada Fibra Reforçada 50.000, sem limite.</p></div>
+<div class="card"><div class="num">35k</div><h3>Por Ficha de Dama</h3><p>Fase 4: cada Ficha de Dama usada rende 35.000 de Fama.</p></div>
+<div class="card hot"><div class="num">11,25M</div><h3>Estrela Nv. 5 da Dama</h3><p>Fase 4: cada ponto de Elevação vale 500 de Fama. As 5 pontas da estrela Nv. 5 dão 4.500 pontos cada, ou 2,25M de Fama por ponta.</p></div>
+</div>
+<div class="warn"><b>Leitura estratégica:</b> existem quatro motores de Fama. O primeiro é ouro na Fase 2: quem tem ouro para os 150 giros faz 13,5M em um dia. O segundo é acelerador na Fase 7, com 300 por minuto. O terceiro é a Dama na Fase 4 (Fichas, Elevação e Artigo de Luxo). O quarto é Poder de treino, obra e pesquisa nas fases 1, 3, 4 e 5, que rende bem mais por minuto de acelerador quando a ação conclui dentro do dia. A classificação geral soma tudo, então quem tem ouro, aceleradores, Fichas e materiais guardados lidera. Se faltar ouro, a Fase 7 e a Fase 4 viram os dias decisivos.</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 id="fases">Fase a fase</h2>
+
+<div class="tl" id="tl">
+
+<div class="ph" data-p="1"><div class="d"><b>1</b><small>Dom 21h</small></div><div><h3>Tijolo por Tijolo</h3>
+<ul><li>Ganhar 1 de Poder com construção: <span class="pill r">30 por ponto</span></li><li>Ganhar 1 de Poder com pesquisa: <span class="pill r">30 por ponto</span></li><li>Ganhar 1 de Poder com treino/promoção de Capangas: <span class="pill">20 por ponto</span></li></ul>
+<div class="tip">Dia de Poder, igual à Fase 5. Cada ponto de Poder ganho nessas ações vira Fama. A obra só pontua se for concluída dentro do dia: faça obras longas terminarem sozinhas no tempo normal dentro da janela e use acelerador só nas curtas. Pesquisas grandes rendem mais na Fase 4 (45 por ponto), então guarde-as para lá.</div></div></div>
+
+<div class="ph" data-p="2"><div class="d"><b>2</b><small>Seg 21h</small></div><div><h3>Provas de Sicário</h3>
+<ul><li>Jogar Giro da Sorte: <span class="pill g">90.000 por giro</span></li><li>Coletar Comida 200, Madeira 200, Metal 40, Gasolina 10: <span class="pill">15 cada</span></li></ul>
+<div class="tip"><b>Aqui o ouro manda.</b> Cada giro custa 1.500 de ouro e soma 90.000 de Fama, até 150 giros no dia. Girar 10x paga só 9, então 150 giros custam 202.500 de ouro e rendem 13.500.000 de Fama (cerca de 66 de Fama por ouro). Quem tem ouro para os 150 giros domina o ranking da fase. Quem tem menos, gira tudo o que der em lotes de 10x. As coletas valem só 60 Fama, faça no automático.</div></div></div>
+
+<div class="ph" data-p="3"><div class="d"><b>3</b><small>Ter 21h</small></div><div><h3>Reunindo Capangas</h3>
+<p>Cada Capanga treinado soma a Fama do seu nível, na mesma lógica da roleta. O nível que dá para treinar é travado pela Mansão: hoje a X-Men está entre Nv. 7 e 8, então Nv. 9 e 10 ficam bloqueados.</p>
+<div class="scroll"><table><tr><th>Nv.</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr><tr><td>Fama por Capanga</td><td>90</td><td>120</td><td>180</td><td>265</td><td>385</td><td>595</td><td>830</td><td>1.130</td><td>1.485</td><td>1.960</td></tr></table></div>
+<div class="tip"><b>Quantidade é o que conta.</b> Treine o maior nível liberado em volume (Nv. 8 = 1.130 de Fama, Nv. 7 = 830). Com os seus números, cada minuto de acelerador de treino rende bem mais aqui do que na Fase 7. A conta está em "Onde gastar cada acelerador". Confirme no jogo se existe limite de unidades na tarefa.</div></div></div>
+
+<div class="ph" data-p="4"><div class="d"><b>4</b><small>Qua 21h</small></div><div><h3>Reabastecimento</h3>
+<ul><li>Coletar Comida 200, Madeira 200, Metal 40, Gasolina 10: <span class="pill">15 cada</span></li><li>Ganhar 1 de Poder com pesquisa: <span class="pill r">45 por ponto</span></li><li>Aumentar a pontuação de Elevação de Dama em 1: <span class="pill g">500 por ponto</span></li><li>Aumentar a pontuação de Artigo de Luxo de Dama em 1: <span class="pill g">1.000 por ponto</span></li><li>Usar qualquer Ficha de Dama: <span class="pill g">35.000 cada</span></li></ul>
+<div class="scroll"><table><tr><th>Estrela</th><th>Pontos por ponta</th><th>Fama por ponta (estrela inteira)</th><th>Artigo de Luxo</th><th>Pontos</th><th>Fama</th></tr><tr><td>Estrela 1</td><td>500</td><td>250.000 (1,25M)</td><td>Nv. 2</td><td>10</td><td>10.000</td></tr><tr><td>Estrela 2</td><td>1.000</td><td>500.000 (2,5M)</td><td>Nv. 3</td><td>15</td><td>15.000</td></tr><tr><td>Estrela 3</td><td>2.000</td><td>1.000.000 (5M)</td><td>Nv. 4</td><td>20</td><td>20.000</td></tr><tr><td>Estrela 4</td><td>3.000</td><td>1.500.000 (7,5M)</td><td>Nv. 5</td><td>30</td><td>30.000</td></tr><tr><td>Estrela 5</td><td>4.500</td><td>2.250.000 (11,25M)</td><td>Nv. 6</td><td>40</td><td>40.000</td></tr></table></div>
+<p style="color:var(--mute);font-size:14px;margin:6px 0">Leitura adotada: cada estrela tem 5 pontas e cada ponta subida soma os pontos do nível da estrela. As 5 estrelas somam 55.000 pontos, ou 27,5M de Fama. Confirme no jogo se a pontuação funciona assim.</p>
+<div class="tip"><b>Dia da pesquisa.</b> Poder de pesquisa vale 45 aqui contra 30 na Fase 5. Programe para que as pesquisas grandes terminem dentro deste dia (de 21h de quarta a 21h de quinta). Segure construção e treino para a Fase 5. A Dama é o grosso do dia: guarde Fichas (35.000 cada) e materiais de Elevação e de Artigo de Luxo para usar tudo aqui. Confirme se as Fichas pontuam a cada uso, como as outras tarefas. Cada ponta vale a pontuação da estrela em que está, então concentre os materiais nas pontas das estrelas mais altas que você já liberou.</div></div></div>
+
+<div class="ph" data-p="5"><div class="d"><b>5</b><small>Qui 21h</small></div><div><h3>Corrida de Poder</h3>
+<p style="margin:0;color:var(--mute);font-size:13px">Nas regras aparece como "Esforço Final".</p>
+<ul><li>Cada Fibra Reforçada usada: <span class="pill g">50.000</span></li><li>Cada peça usada em qualquer Equipamento Especial de Sicário: <span class="pill g">100.000</span></li><li>Poder por construção: <span class="pill r">30</span> · por pesquisa: <span class="pill r">30</span> · por treino/promoção de Capangas: <span class="pill">20</span></li></ul>
+<div class="tip">Guarde as melhoras de construção de maior Poder e conclua tudo neste dia. Os itens pontuam sem limite de 1x: gaste todo o estoque de Fibras e peças aqui. Pesquisa que sobrar aqui rende 30, então a de maior Poder ficou melhor na Fase 4.</div></div></div>
+
+<div class="ph" data-p="6"><div class="d"><b>6</b><small>Sex 21h</small></div><div><h3>Crescimento de Patrón</h3>
+<ul><li>Aumentar a maior pontuação de Apetrechos do Patrón em 1: <span class="pill g">500 por ponto</span></li></ul>
+<div class="tip">Dia de uma tarefa só. Guarde materiais de Apetrecho nas semanas anteriores e suba o Apetrecho de maior pontuação o máximo que der. Confirme no jogo se a tarefa repete a cada ponto; se repetir, esse é o dia da fila de materiais.</div></div></div>
+
+<div class="ph" data-p="7"><div class="d"><b>7</b><small>Sáb 21h</small></div><div><h3>Hora do Rush</h3>
+<ul><li>1 min de acelerador em construções: <span class="pill g">300</span></li><li>1 min de acelerador em pesquisa de tecnologia: <span class="pill g">300</span></li><li>1 min de acelerador em treino e promoção de Capangas: <span class="pill g">300</span></li></ul>
+<p style="color:var(--mute);font-size:14px;margin:4px 0">Aceleradores de Ouro não contam.</p>
+<div class="tip">Tudo que você acumulou vira Fama aqui. Antes das 21h de sábado, deixe as três filas livres e comece obras, pesquisas e treinos longos para consumir cada minuto. Prefira os itens de maior duração, assim nenhum acelerador sobra. Obras longas, como a Mansão (cerca de 17.341 min de acelerador do Nv. 24 para o 25), absorvem muito acelerador e pontuam por minuto mesmo sem concluir.</div></div></div>
+
+</div></div></section>
+
+<section><div class="wrap">
+<h2 id="calc">Calculadora da Fase 7</h2>
+<p class="sub">Informe quantas horas de acelerador você junta em cada categoria (somando os itens de 1h, 3h, 8h etc.).</p>
+<div class="calc"><div class="row">
+<label>Construção (horas)<input id="c1" type="number" min="0" value="0" inputmode="decimal"></label>
+<label>Pesquisa (horas)<input id="c2" type="number" min="0" value="0" inputmode="decimal"></label>
+<label>Treino/promoção (horas)<input id="c3" type="number" min="0" value="0" inputmode="decimal"></label>
+</div>
+<div class="out"><div class="num" id="tot">0</div>Fama estimada na Fase 7 <div style="color:var(--mute);margin-top:6px" id="hint"></div></div></div>
+
+<h2 style="margin-top:40px">Gastar na Fase 5 ou guardar para a 7?</h2>
+<p class="sub">Um minuto de acelerador vale 300 Fama na Fase 7. Só use aceleradores antes disso se o Poder conseguido por minuto gasto passar destes limites:</p>
+<div class="scroll"><table>
+<tr><th>Fonte de Poder</th><th>Fama por Poder</th><th>Só vale acelerar se render mais que</th></tr>
+<tr><td>Pesquisa na Fase 4</td><td>45</td><td>6,7 de Poder por minuto</td></tr>
+<tr><td>Construção ou pesquisa na Fase 5</td><td>30</td><td>10 de Poder por minuto</td></tr>
+<tr><td>Treino/promoção na Fase 5</td><td>20</td><td>15 de Poder por minuto</td></tr>
+</table></div>
+<div class="warn">Exemplo: uma obra de 3.000 de Poder que exige 600 min de acelerador rende 90.000 na Fase 5, mas esses 600 min dariam 180.000 na Fase 7. Nesse caso, guarde o acelerador.</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 id="aceleradores">Onde gastar cada acelerador</h2>
+<p class="sub">Fama por minuto de acelerador em cada dia. Os campos já vêm com os seus dados de treino; mude para o nível de Capanga que estiver usando.</p>
+<div class="calc"><div class="row">
+<label>Capangas por lote (por campo)<input id="t1" type="number" value="544" inputmode="decimal"></label>
+<label>Tempo do lote (min)<input id="t2" type="number" value="438" inputmode="decimal"></label>
+<label>Poder do lote<input id="t3" type="number" value="20682" inputmode="decimal"></label>
+<label>Fama por Capanga na Fase 3<input id="t4" type="number" value="1130" inputmode="decimal"></label>
+<label>Campos de treino<input id="t5" type="number" value="3" inputmode="decimal"></label>
+</div><div class="out scroll" id="tout"></div></div>
+<h3 style="margin:26px 0 8px;font-size:26px;color:var(--gold)">Estudo de caso: Mansão Nv. 24 para 25</h3>
+<div class="big">
+<div class="card"><div class="num">17.341</div><h3>minutos de acelerador</h3><p>Tempo real da obra (12d 01:01:02). O tempo original é 18d 18h, ou 27.000 min.</p></div>
+<div class="card"><div class="num">86.100</div><h3>de Poder</h3><p>Rende 2.583.000 de Fama nas fases 1 e 5, mas só se a obra for concluída dentro do dia.</p></div>
+<div class="card hot"><div class="num">149</div><h3>Fama por minuto (fases 1 e 5)</h3><p>Cerca de 162 se a obra começar no início do dia e usar as 24h naturais. Na Fase 7 os mesmos 17.341 min rendem 5.202.300, ou 300 por minuto.</p></div>
+</div>
+<div class="warn"><b>Conclusão:</b> acelerar a Mansão nas fases 1 e 5 rende cerca de metade da Fase 7. Ela só ganharia se desse mais de 10 de Poder por minuto, e a Mansão dá cerca de 5. O que vale é o <b>tempo natural</b>: como o evento parece ocorrer a cada 15 dias, a Mansão (12 dias) se encaixa. Iniciada no dia seguinte ao fim do evento anterior, ela termina na janela da Fase 5, e os 2,58M de Fama saem quase de graça, ao custo da fila de construção ocupada. Use a calculadora de agendamento abaixo para qualquer obra ou pesquisa. Na Fase 7, comece a Mansão logo às 21h para ela absorver acelerador o dia todo.<br><br><b>Hoje a obra nem começa:</b> faltam Central da Aliança Nv. 24 e Base de Pilotos Nv. 24, além de 48,8M de comida, 53,3M de madeira e 8,9M de metal. Subir a Mansão também pode liberar Capangas Nv. 9 (1.485 de Fama cada, 355 a mais que o Nv. 8) na Fase 3. Seu salto do Nv. 22 para o 24 no dia 1 deu 172.200 de Poder, ou 5.166.000 de Fama, e ainda contou para o ranking da fase, que tem prêmios próprios.</div>
+<h3 style="margin:26px 0 8px;font-size:26px;color:var(--gold)">Agendar obra ou pesquisa longa</h3>
+<p class="sub">Informe o tempo real mostrado na tela e a fase em que quer concluir. A janela de início considera o próximo evento no ciclo de 15 dias.</p>
+<div class="calc"><div class="row">
+<label>Dias<input id="s1" type="number" value="12" inputmode="decimal"></label>
+<label>Horas<input id="s2" type="number" value="1" inputmode="decimal"></label>
+<label>Minutos<input id="s3" type="number" value="1" inputmode="decimal"></label>
+<label>Concluir na fase<select id="s4" style="width:100%;margin-top:4px;background:#07100c;border:1px solid var(--line);color:var(--ink);padding:10px;font:inherit;border-radius:3px"><option value="1">Fase 1</option><option value="3">Fase 3</option><option value="4">Fase 4 (pesquisa)</option><option value="5" selected>Fase 5</option></select></label>
+</div><div class="out" id="sout"></div>
+<p style="color:var(--mute);font-size:14px;margin:10px 0 0"><b>Regra de segurança:</b> erre para tarde, nunca para cedo. Se a obra terminar depois da janela, use acelerador só na diferença. Se terminar antes, os pontos se perdem. Descontos de velocidade e ajuda da aliança mudam o tempo, então confira o tempo na tela ao iniciar.</p></div>
+<h3 style="margin:26px 0 8px;font-size:26px;color:var(--gold)">Comparar construção ou pesquisa</h3>
+<div class="calc"><div class="row">
+<label>Tipo<select id="g1" style="width:100%;margin-top:4px;background:#07100c;border:1px solid var(--line);color:var(--ink);padding:10px;font:inherit;border-radius:3px"><option value="30">Construção (fases 1 e 5)</option><option value="30">Pesquisa (fases 1 e 5)</option><option value="45">Pesquisa (fase 4)</option><option value="20">Treino (fases 1 e 5)</option></select></label>
+<label>Poder ganho na ação<input id="g2" type="number" value="86100" inputmode="decimal"></label>
+<label>Minutos de acelerador usados<input id="g3" type="number" value="17341" inputmode="decimal"></label>
+</div><div class="out" id="gout"></div></div>
+<div class="warn"><b>Resultado com os seus dados:</b> um minuto de acelerador de treino rende cerca de 944 de Fama nas fases 1 e 5, entre 1.031 (Nv. 7) e 1.403 (Nv. 8) na Fase 3, e só 300 na Fase 7. Ordem de uso: Fase 3, depois fases 1 e 5, e a Fase 7 só com o que sobrar. O limite prático passa a ser o custo em recursos dos Capangas.</div>
+</div></section>
+<section><div class="wrap">
+<h2 id="premios">Prêmios</h2>
+<p class="sub">Classificação geral: top 100 recebe por correio no fim do evento. Os três aceleradores de 1h (construção, pesquisa e treino) vêm na mesma quantidade em cada posição.</p>
+<div class="scroll"><table>
+<tr><th>Posição</th><th>Peças Sicário Monstro</th><th>Ouro</th><th>Acel. construção 1h</th><th>Acel. pesquisa 1h</th><th>Acel. treino 1h</th></tr>
+<tr><td>1º</td><td>200</td><td>80k</td><td>30</td><td>30</td><td>30</td></tr>
+<tr><td>2º</td><td>100</td><td>48k</td><td>20</td><td>20</td><td>20</td></tr>
+<tr><td>3º</td><td>70</td><td>28,8k</td><td>18</td><td>18</td><td>18</td></tr>
+<tr><td>4º-5º</td><td>40</td><td>18k</td><td>15</td><td>15</td><td>15</td></tr>
+<tr><td>6º-10º</td><td>20</td><td>10k</td><td>10</td><td>10</td><td>10</td></tr>
+</table></div>
+<p class="sub" style="margin-top:22px">Prêmios por fase (exemplo: Fase 2). Top 100 com pelo menos 1 de Fama.</p>
+<div class="scroll"><table>
+<tr><th>Posição</th><th>Ouro</th><th>Acel. pesquisa 1h</th><th>Ingressos</th><th>Baú de recursos</th></tr>
+<tr><td>1º</td><td>20k</td><td>12</td><td>3</td><td>100</td></tr>
+<tr><td>2º</td><td>12k</td><td>9</td><td>2</td><td>90</td></tr>
+<tr><td>3º</td><td>7.500</td><td>8</td><td>2</td><td>85</td></tr>
+<tr><td>4º-5º</td><td>4.500</td><td>7</td><td>1</td><td>80</td></tr>
+<tr><td>6º-10º</td><td>2.500</td><td>6</td><td>1</td><td>75</td></tr>
+</table></div>
+</div></section>
+
+<section><div class="wrap">
+<h2 id="rotina">Rotina entre um evento e outro</h2>
+<ol class="steps">
+<li>Acumule aceleradores de construção, pesquisa e treino. Evite os de Ouro, que não pontuam na Fase 7.</li>
+<li>Junte o máximo de ouro para a Fase 2: 202.500 pagam os 150 giros do dia (10x paga 9), e cada giro rende 90.000 de Fama.</li>
+<li>Acumule Fibras Reforçadas e peças de Equipamento Especial de Sicário para a Fase 5: cada uma usada soma Fama.</li>
+<li>Acumule materiais de Apetrecho para a Fase 6.</li>
+<li>Acumule Fichas de Dama e materiais de Elevação e de Artigo de Luxo para a Fase 4.</li>
+<li>Use a calculadora de agendamento para saber quando iniciar cada obra ou pesquisa longa e concluir dentro da fase certa. Erre para tarde e feche a diferença com acelerador.</li>
+<li>No sábado às 21h, comece a Fase 7 com as três filas livres.</li>
+</ol>
+<div class="warn"><b>Atenção:</b> confirme no jogo se o Poder conta ao iniciar ou ao concluir a ação, e se as tarefas repetem. O resto do raciocínio muda pouco com isso.</div>
+</div></section>
+
+<footer><div class="wrap"><b>X-Men · Os de Fé</b>Narco Empire · Dom Maioral</div></footer>
+
+<script>
+(function(){
+var names=["","Tijolo por Tijolo","Provas de Sicário","Reunindo Capangas","Reabastecimento","Corrida de Poder","Crescimento de Patrón","Hora do Rush"];
+var START=Date.UTC(2026,9,12,0,0,0),DAY=864e5;
+function p2(n){return String(n).padStart(2,"0")}
+function tick(){
+var now=Date.now(),off=((now-START)%(15*DAY)+15*DAY)%(15*DAY),cs=now-off,i=Math.floor(off/DAY)+1,el=document.getElementById("nphase"),cd=document.getElementById("cd");
+document.querySelectorAll(".ph").forEach(function(e){e.classList.toggle("cur",+e.dataset.p===i)});
+if(i>7){el.textContent="Entre eventos";var w=cs+15*DAY-now;cd.textContent="Próximo Dom Maioral em "+Math.floor(w/DAY)+"d "+p2(Math.floor(w%DAY/36e5))+"h (ciclo de 15 dias, a confirmar)";return}
+el.textContent="Agora: Fase "+i+" — "+names[i];
+var left=cs+i*DAY-now,h=Math.floor(left/36e5),m=Math.floor(left%36e5/6e4),s=Math.floor(left%6e4/1e3);
+cd.textContent="Termina em "+p2(h)+":"+p2(m)+":"+p2(s)}
+tick();setInterval(tick,1000);
+function calc(){
+var h=0;["c1","c2","c3"].forEach(function(id){h+=Math.max(0,parseFloat(document.getElementById(id).value)||0)});
+var f=Math.round(h*60*300);
+document.getElementById("tot").textContent=f.toLocaleString("pt-BR");
+document.getElementById("hint").textContent=h?("Total de "+h.toLocaleString("pt-BR")+"h de acelerador × 60 min × 300 Fama."):"Digite as horas acima."}
+["c1","c2","c3"].forEach(function(id){document.getElementById(id).addEventListener("input",calc)});calc();
+function v(id){return Math.max(0,parseFloat(document.getElementById(id).value)||0)}
+function n(x){return Math.round(x).toLocaleString("pt-BR")}
+function tr(){
+var q=v("t1"),t=v("t2"),p=v("t3"),f=v("t4"),c=v("t5")||1;
+if(!t||!q){document.getElementById("tout").textContent="Informe capangas e tempo do lote.";return}
+var a=p*20,b=q*f,d=t*300,m=t*c;
+var rows=[["Fases 1 e 5 (Poder x 20)",a],["Fase 3 (Fama por Capanga)",b],["Fase 7 (300 por minuto)",d]];
+var best=rows.reduce(function(x,y){return y[1]>x[1]?y:x});
+var h="<table><tr><th>Dia</th><th>Fama por lote</th><th>Fama por minuto</th><th>Lote em "+c+" campo(s)</th></tr>";
+rows.forEach(function(r){h+="<tr><td>"+r[0]+(r===best?" (melhor)":"")+"</td><td>"+n(r[1])+"</td><td>"+n(r[1]/t)+"</td><td>"+n(r[1]*c)+" usando "+n(m)+" min"+"</td></tr>"});
+document.getElementById("tout").innerHTML=h+"</table>"}
+["t1","t2","t3","t4","t5"].forEach(function(id){document.getElementById(id).addEventListener("input",tr)});tr();
+function gc(){
+var k=+document.getElementById("g1").value,p=v("g2"),m=v("g3"),o=document.getElementById("gout");
+if(!m){o.textContent="Informe o Poder e os minutos.";return}
+var r=p*k/m;
+o.innerHTML="<b>"+n(r)+" de Fama por minuto</b> contra 300 na Fase 7. "+(r>300?"Vale usar o acelerador neste dia.":"Guarde o acelerador para a Fase 7.")}
+["g1","g2","g3"].forEach(function(id){document.getElementById(id).addEventListener("input",gc)});gc();
+function sc(){
+var dur=(v("s1")*1440+v("s2")*60+v("s3"))*6e4,ph=+document.getElementById("s4").value,o=document.getElementById("sout");
+if(!dur){o.textContent="Informe o tempo da obra.";return}
+var now=Date.now(),k=0,ws;
+for(;k<40;k++){ws=START+k*15*DAY+(ph-1)*DAY;if(ws+DAY-dur>now)break}
+var a=Math.max(now,ws-dur),b=ws+DAY-dur;
+var f=function(t){return new Date(t).toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo",weekday:"short",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})};
+o.innerHTML="Comece entre <b>"+f(a)+"</b> e <b>"+f(b)+"</b> (Brasília) para concluir dentro da Fase "+ph+" do evento de "+new Date(START+k*15*DAY).toLocaleDateString("pt-BR",{timeZone:"America/Sao_Paulo",day:"2-digit",month:"2-digit"})+"."}
+["s1","s2","s3","s4"].forEach(function(id){document.getElementById(id).addEventListener("input",sc)});sc();
+})();
+</script>
+<script>
+(function(){
+var $=function(s){return document.querySelectorAll(s)};
+var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(!reduce){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var t=e.target;io.unobserve(t);t.classList.add("in");setTimeout(function(){t.classList.remove("rv","in");t.style.transitionDelay=""},1200)})},{threshold:.1,rootMargin:"0px 0px -5% 0px"});
+$("h2,.sub,.card,.ph,.calc,.warn,.scroll,.stats>div,.now,ol.steps li").forEach(function(el){var i=Array.prototype.indexOf.call(el.parentNode.children,el);el.classList.add("rv");el.style.transitionDelay=Math.min(i,5)*70+"ms";io.observe(el)});
+$(".stats b").forEach(function(b){var to=+b.dataset.to,dec=+b.dataset.dec||0,suf=b.dataset.suf||"",fin=b.textContent;var o=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;o.disconnect();var t0=performance.now();(function s(t){var p=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-p,3);b.textContent=(to*e).toFixed(dec).replace(".",",")+suf;if(p<1)requestAnimationFrame(s);else b.textContent=fin})(t0)},{threshold:.5});o.observe(b)});
+}
+var secs=["conta","fases","calc","aceleradores","premios","rotina"].map(function(i){return document.getElementById(i)});
+var links=$(".lk a"),bar=document.getElementById("bar"),tb=document.createElement("button"),tk=false,last=-2;
+tb.id="top2";tb.setAttribute("aria-label","Voltar ao topo");tb.textContent="↑";document.body.appendChild(tb);
+tb.onclick=function(){scrollTo({top:0,behavior:reduce?"auto":"smooth"})};
+function onS(){tk=false;var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?y/h*100:0)+"%";tb.classList.toggle("show",y>700);var c=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<innerHeight*.35)c=i});if(c!==last){last=c;links.forEach(function(a,i){a.classList.toggle("on",i===c)});var a=links[c];if(a){var p=a.parentNode;p.scrollTo({left:a.offsetLeft-p.clientWidth/2+a.clientWidth/2,behavior:reduce?"auto":"smooth"})}}}
+addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(onS)}},{passive:true});onS();
+var tl=document.getElementById("tl"),rail=document.createElement("div");rail.className="rail";
+var nm=["","Tijolo por Tijolo","Provas de Sicário","Reunindo Capangas","Reabastecimento","Corrida de Poder","Crescimento de Patrón","Hora do Rush"];
+for(var i=1;i<=7;i++){(function(i){var b=document.createElement("button");b.innerHTML="<b>"+i+"</b>"+nm[i];b.onclick=function(){var t=document.querySelector('.ph[data-p="'+i+'"]');t.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});t.classList.add("ping");setTimeout(function(){t.classList.remove("ping")},1400)};rail.appendChild(b)})(i)}
+tl.parentNode.insertBefore(rail,tl);
+})();
+</script>
+</body>
+</html>
